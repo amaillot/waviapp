@@ -1,0 +1,46 @@
+<ion-view view-title="Search" >
+  <ion-content scroll="false" class="map">
+
+    <ng-map center="48.8371, 2.58492"
+
+        zoom="{{zoom}}"
+        disable-default-u-i="true"
+        disable-double-click-zoom="true"
+        dragging-cursor="move"
+        keyboard-shortcuts="false"
+        default-style = "false">
+
+    <marker position="48.8371, 2.58492" title="ma position" icon="img/epingle.png"></marker>
+    <div ng-repeat="lieu in lieus">
+    <marker position="{{lieu.adresse}}"
+    title="yo"
+    on-click="showInfos(event, lieu)"
+    icon="{
+        url : 'img/{{lieu.couleur}}.png',
+        scaledSize:[20,20]
+          }"
+    ></marker>
+    <info-window id="myInfoWindow" visible-on-marker="">
+      <div class="infowindow">
+        <p class="windowleft">
+          <b>{{selectedlieu.nom}}</b>
+          <br>
+          {{selectedlieu.categorie}}
+       </p>
+        <a class="item-icon-right windowright" ng-click="Lieu()">
+          <i class="icon ion-ios-information-outline"></i>
+        </a>
+      </div>
+    </info-window>
+    </div>
+
+</ng-map>
+
+
+<div class="item range range-assertive zoom">
+  <p>zoom : {{zoom}}</p>
+
+  <input type="range" name="zoom" min="10" max="20" value="10" ng-model="zoom">
+</div>
+  </ion-content>
+</ion-view>

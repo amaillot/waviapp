@@ -1,0 +1,154 @@
+/* Empty. Add your own CSS if you like */
+
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.vert{
+    background-color: #64dd17;
+}
+
+
+/*//----HEADER-----//*/
+.header{
+  background-color: #64dd17;
+  height: 60px;
+}
+
+ .button-menu{
+   color: white;
+ }
+
+/*.logo{
+   width: 80px;
+   height: 40px;
+   background-image: url("../img/wavi2.png");
+   background-size: cover;
+   background-repeat: no-repeat;
+}*/
+
+/*//----HOME-----//*/
+
+.pointe{
+  margin-top:100px;
+  width: 300px;
+}
+
+.pointe:active{
+  opacity: 0.8;
+}
+
+/*//----MAP-----//*/
+
+ng-map{
+  position: relative;
+  top: 60px;
+  height: 95%;
+  width: 100%;
+}
+
+.zoom{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.windowleft{
+  float: left;
+}
+
+.windowright{
+float: right;
+}
+
+.photo{
+  width: 100%;
+}
+
+/*//----LIEU-----//*/
+
+.left{
+  height: 40px;
+  width: 40px;
+  border-radius: 100px;
+  background-position: center;
+  background-size: cover;
+  float: left;
+  margin-right: 10px;
+}
+
+.right{
+  float: right;
+}
+
+
+/*//----Login-----//*/
+
+.item-buttons{
+    position: relative;
+    top:50px;
+
+}
+
+ .button-assertive{
+    width: 40%;
+    height: 60%;
+    left:10%;
+}
+
+.button.button-red{
+    background-color: red;
+    color: white;
+}
+
+.logo{
+  margin-top: 70px;
+    margin-left:32%;
+    width: 40%;
+    height: 20%;
+}
+
+.item-stacked-label{
+    border:hidden;
+}
+
+/*.ng-valid.ng-dirty{
+    border-bottom:2px solid green;
+
+}*/
+
+.ng-invalid.ng-dirty{
+    border-bottom:2px solid red;
+
+}
+
+.boutons{
+    margin-top:50px;
+}
+
+/*//----COMPTE-----//*/
+
+.couverture{
+    height: 200px;
+    width: 100%;
+    background-image: url(../img/wavicouv.jpg);
+    background-position: center;
+    background-size: contain;
+    text-align: center;
+}
+
+.avatar {
+    width: 180px;
+    height: 180px;
+    border-radius: 100px;
+    background-position: center;
+    background-size: cover;
+}
+
+.haut{
+    position: relative;
+    top: 60px;
+}

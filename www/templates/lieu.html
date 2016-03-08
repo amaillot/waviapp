@@ -1,0 +1,32 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Wavi</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeLieu()">Close</button>
+    </div>
+  </ion-header-bar>
+<ion-content>
+  <h1>{{selectedlieu.nom}}</h1>
+  <p>{{selectedlieu.description}}</p>
+  <img class="photo" src="{{selectedlieu.photo}}" alt="">
+  <p>La on met un lourd texte provisoire vu que jai pas encore la connexion
+  asser balaise à la base pour récupérer les catégoeires etc donc fuck {{selectedlieu.couleur}}</p>
+  <a href="" ng-click="closeLieu()">Retour</a>
+<br>
+  <a href="">Allons-y !</a>
+  <button class="button button-positive" ng-click="showPopup()">
+      Ajouter un commentaire
+      </button>
+      <button class="button button-positive" ng-click="showPopup()">
+          Supprimer un commentaire
+          </button>
+<div class="list">
+    <a class="item item-avatar" href="#" ng-repeat="comment in comments">
+      <img src="{{comment.avatar}}">
+      <h2>{{comment.prenom}}</h2>
+      <p>{{comment.contenu}}</p>
+      <p>{{comment.date}}</p>
+    </a>
+</div>
+<a href="" ng-click="showComments()">Voir tout les commentaires</a>
+</ion-content>
