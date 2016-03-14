@@ -1,5 +1,19 @@
 <ion-view>
+  <ion-header-bar class="vert headerfiltre">
+    <div class="filtrebar down center">Filtres</div>
+  </ion-header-bar>
   <ion-content scroll="false">
+    <div class="filtres">
+
+    </div>
+    <ion-list class="listefiltre">
+<li class="item item-checkbox-square filtre" ng-repeat="cat in cats">
+  <img src="img/{{cat.couleur}}.png" alt="" id="rond">
+{{cat.nom}}
+ <input type="checkbox" class="checkbox">
+ </label>
+</li>
+    </ion-list>
 <a href="#/app/map">
 <img src="img/pointe2.png" alt="" class="center pointe">
 </a>

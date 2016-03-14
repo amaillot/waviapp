@@ -11,24 +11,20 @@
     background-color: #64dd17;
 }
 
+.aligne{
+  display: inline-block;
+}
+
+
 
 /*//----HEADER-----//*/
 .header{
   background-color: #64dd17;
-  height: 60px;
 }
 
  .button-menu{
    color: white;
  }
-
-/*.logo{
-   width: 80px;
-   height: 40px;
-   background-image: url("../img/wavi2.png");
-   background-size: cover;
-   background-repeat: no-repeat;
-}*/
 
 /*//----HOME-----//*/
 
@@ -41,11 +37,67 @@
   opacity: 0.8;
 }
 
+.headerfiltre{
+  height: 120px;
+}
+.filtres{
+  display: none;
+  position: absolute;
+  top: 70px;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  text-align: center;
+}
+
+.up {
+  color: red;
+}
+
+.filtre{
+  list-style: none;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+.listefiltre{
+  display: none;
+  height: 100%;
+  position: absolute;
+  top: 80px;
+  width: 100%;
+  text-align: center;
+}
+
+.checkbox{
+  float: right;
+}
+
+#rond{
+  width: 40px;
+  float: left;
+}
+
+.filtrebar{
+  text-align: center;
+  margin-top: 68px;
+  background-color: white;
+  width: 95%;
+  height: 40px;
+  font-size: 20px;
+  color: black;
+}
+
+.filtrebar:active{
+  background-color: grey;
+}
+
+
 /*//----MAP-----//*/
 
 ng-map{
   position: relative;
-  top: 60px;
+  top: 20px;
   height: 95%;
   width: 100%;
 }
@@ -132,23 +184,37 @@ float: right;
 /*//----COMPTE-----//*/
 
 .couverture{
-    height: 200px;
+  margin-top: 40px;
+    height: 220px;
     width: 100%;
-    background-image: url(../img/wavicouv.jpg);
+    background-image: url('http://img.lum.dolimg.com/v1/images/databank_mustafar_01_169_5b470758.jpeg?region=0%2C0%2C1560%2C878&width=768');
+    /*background-image: url(../img/wavicouv.jpg);*/
     background-position: center;
     background-size: contain;
     text-align: center;
 }
 
 .avatar {
+    position: relative;
+    top: 20px;
     width: 180px;
     height: 180px;
+    border: solid 1px black;
+    box-shadow: 2px 2px;
     border-radius: 100px;
     background-position: center;
     background-size: cover;
 }
 
-.haut{
-    position: relative;
-    top: 60px;
+
+
+.itemuser{
+  width: 90%;
+}
+
+.deconnexion{
+  margin-right: 30px;
+}
+.modification{
+  margin-left: 30px;
 }

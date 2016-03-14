@@ -1,9 +1,18 @@
 <ion-view view-title="Gestion du compte">
   <ion-content>
-
-    <div class="couverture haut" >
+    <div class="couverture" >
     <div class="avatar center" style="background-image:url({{currentUser.avatar}})"></div>
     </div>
-    <h1 class="haut">Compte : {{currentUser.pseudo}}</h1>
+  <div class="list">
+    <div class="item">Pseudo : {{currentUser.pseudo}}</div>
+    <div class="item">Nom : {{currentUser.nom}}</div>
+    <div class="item">Prénom : {{currentUser.prenom}}</div>
+    <div class="item">Mail : {{currentUser.mail}}</div>
+    <div class="item">Description : {{currentUser.description}}</div>
+  </div>
+  <div class="aligne"></div>
+  <button ng-click="deconnexion()" type="button" name="button" class="button button-assertive deconnexion">Se déconnecter</button>
+  <button type="button" name="button" class="button button-balanced modification">Modifier les infos</button>
+
   </ion-content>
 </ion-view>

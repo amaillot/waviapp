@@ -18,11 +18,9 @@
         <input ng-model="data.password" ng-minlength="4" type="password" placeholder="Mot de passe" required>
       </label>
       <div class="boutons">
-      <a href="#/app/compte">
         <button  ng-click="doLogin()" class="button button-assertive">
             Connexion
         </button>
-      </a>
         <button ng-click="login()" class="button button-assertive">
           Inscription
         </button>
@@ -30,7 +28,7 @@
      </div>
     </form>
     <div class="item item-text-wrap">
-        Response: Salut {{currentUser.prenom}}
+        Response: {{currentUser.prenom}}
     </div>
   </ion-modal-content>
 </ion-view>

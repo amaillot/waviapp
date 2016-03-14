@@ -1,7 +1,8 @@
 <ion-view view-title="Search" >
+
   <ion-content scroll="false" class="map">
 
-    <ng-map center="48.8371, 2.58492"
+    <ng-map center="IUT Marle Vallée"
 
         zoom="{{zoom}}"
         disable-default-u-i="true"
@@ -11,6 +12,7 @@
         default-style = "false">
 
     <marker position="48.8371, 2.58492" title="ma position" icon="img/epingle.png"></marker>
+
     <div ng-repeat="lieu in lieus">
     <marker position="{{lieu.adresse}}"
     title="yo"

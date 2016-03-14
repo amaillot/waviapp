@@ -1,6 +1,6 @@
 angular.module('starter.controllers', ['ionic'])
 
-.controller('AppCtrl', function($scope, $ionicModal, $http) {
+.controller('AppCtrl', function($scope, $ionicModal, $http, $ionicPopup) {
 
         // Create the login modal that we will use later
         $ionicModal.fromTemplateUrl('templates/logintestdata.html', {
@@ -44,12 +44,58 @@ angular.module('starter.controllers', ['ionic'])
             pseudo : $scope.data.pseudo,
             password : $scope.data.password
           }).then(function (res){
-              $scope.currentUser = res.data[0];
+              $scope.auth = res.data[0];
+              if ($scope.auth.prenom == 'Erreur') {
+                  alert("Erreur d'authentification");
+              }else if ($scope.auth.prenom == '') {
+                alert("Erreur d'authentification");
+
+              }else{
+                window.location.replace("#/app/home");
+                $scope.currentUser = $scope.auth;
+                var alertPopup = $ionicPopup.alert({
+                 title: 'Bienvenue '+$scope.currentUser.pseudo+' !',
+                 template: '<img height="10px" scr="'+$scope.currentUser.avatar+'">'
+               });
+
+               alertPopup.then(function(res) {
+                 console.log('Thank you for not eating my delicious ice cream cone');
+               });
+              }
             });
+
+
+
           };
     })
 
-.controller('homeCtrl', function($scope, $http, $ionicModal, Camera){
+.controller('CompteCtrl', function($scope, $http, $ionicModal){
+      $scope.deconnexion = function(){
+          window.location.replace("#/app/login");
+      };
+          })
+
+
+.controller('homeCtrl', function($scope, $http, $ionicModal){
+
+
+    var link = 'http://localhost:8888/getcategorie.php';
+
+      $http.get(link).then(function (res){
+      $scope.cats = res.data;
+          });
+
+      $(".down").click(function(){
+        if ($(".down").hasClass('up')) {
+          $(".listefiltre").slideUp(300);
+          $(".filtres").fadeOut(300);
+          $(".down").removeClass('up');
+        } else {
+          $(".listefiltre").slideDown(300);
+          $(".filtres").fadeIn(300);
+          $(".down").addClass('up');
+        }
+      });
 
       $ionicModal.fromTemplateUrl('templates/ajoutlieu.html', {
         scope: $scope
@@ -65,11 +111,6 @@ angular.module('starter.controllers', ['ionic'])
       // Open the login modal
       $scope.Activity = function() {
         $scope.modal.show();
-        var link = 'http://localhost:8888/getcategorie.php';
-
-        $http.get(link).then(function (res){
-            $scope.cats = res.data;
-                });
 
       };
 
@@ -77,7 +118,6 @@ angular.module('starter.controllers', ['ionic'])
 
         $scope.submit = function(){
             var link = 'http://localhost:8888/inser_lieu.php';
-
             $http.post(link, {
               nom : $scope.data.nom,
               categorie : $scope.data.cat,
@@ -89,20 +129,15 @@ angular.module('starter.controllers', ['ionic'])
               $scope.reponse = res.data;
               });
             };
-
-
-        // $scope.getPhoto = function() {
-        //     Camera.getPicture().then(function(imageURI) {
-        //     console.log(imageURI);
-        //   }, function(err) {
-        //     console.err(err);
-        //   })
-        //
-        // };
       })
 
 .controller('mapCtrl', function($scope, $http, $ionicModal, NgMap, $ionicPopup, $timeout) {
 
+    var link = 'http://localhost:8888/getcategorie.php';
+
+    $http.get(link).then(function (res){
+    $scope.cats = res.data;
+        });
 
         var zoom = $scope.zoom;
         $scope.data = {};
@@ -115,6 +150,7 @@ angular.module('starter.controllers', ['ionic'])
 
         $http.get(link).then(function (res){
             $scope.lieus = res.data;
+            console.log($scope.lieus);
                 });
 
         $scope.showInfos = function(event, lieu) {

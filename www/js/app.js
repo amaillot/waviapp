@@ -32,11 +32,19 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngMap'])
     controller: 'AppCtrl'
   })
 
+  .state('login', {
+  url: '/login',
+  abstract: true,
+  templateUrl: 'templates/login.html',
+  controller: 'AppCtrl'
+})
+
   .state('app.compte', {
     url: '/compte',
     views: {
       'menuContent': {
-        templateUrl: 'templates/compte.html'
+        templateUrl: 'templates/compte.html',
+        controller : 'CompteCtrl'
       }
     }
   })
@@ -55,7 +63,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngMap'])
         url: '/login',
         views: {
           'menuContent': {
-            templateUrl: 'templates/login.html',
+            templateUrl: 'templates/login.html'
           }
         }
       })
