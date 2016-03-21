@@ -1,5 +1,36 @@
 /* Empty. Add your own CSS if you like */
 
+.menumaterial{
+  position: absolute;
+  top: 0;
+}
+
+.couverturemenu{
+  height: 220px;
+  width: 100%;
+  background-image: url('http://img.lum.dolimg.com/v1/images/databank_mustafar_01_169_5b470758.jpeg?region=0%2C0%2C1560%2C878&width=768');
+  /*background-image: url(../img/wavicouv.jpg);*/
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+}
+
+.avatarmenu{
+  position: relative;
+  top: 70px;
+  width: 80px;
+  height: 80px;
+  border: solid 1px black;
+  box-shadow: 0 0 4px 5px rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  border-radius: 100px;
+  background-position: center;
+  background-size: cover;
+  background-image: url();
+}
+
+ion-nav-view{
+  z-index: -10;
+}
 
 .center {
     margin-left: auto;
@@ -14,8 +45,6 @@
 .aligne{
   display: inline-block;
 }
-
-
 
 /*//----HEADER-----//*/
 .header{
@@ -136,6 +165,55 @@ float: right;
   float: right;
 }
 
+.image_lieux{
+ width:100%;
+ margin-top: 20px;
+}
+
+.titre_lieux{
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.titre_lieux > h2{
+    color:#6c6c6c;
+    font-size: 1.3em;
+}
+
+.titre_lieux > h1{
+    color:black;
+    font-size: 1.3em;
+}
+
+.description_lieux > p{
+    width: 80%;
+    text-align: center;
+    font-size: 1.3em;
+    color:#6c6c6c;
+    margin-top: 20px;
+    margin-left: 10px;
+
+}
+
+.buttons_lieux{
+ margin-top: 60px;
+ margin-left: 20px;
+ width: 100%;
+
+}
+
+.buttons_lieux > .button-assertive{
+width: 35%;
+}
+
+.buttons_lieux > .button-balanced{
+width: 35%;
+margin-left: 10px;
+}
+
+.ajouter{
+  margin-top: 20px;
+}
 
 /*//----Login-----//*/
 
@@ -145,7 +223,7 @@ float: right;
 
 }
 
- .button-assertive{
+ .buttonlogin{
     width: 40%;
     height: 60%;
     left:10%;
@@ -157,14 +235,15 @@ float: right;
 }
 
 .logo{
-  margin-top: 70px;
-    margin-left:32%;
-    width: 40%;
-    height: 20%;
+    margin-top: 80px;
+    width: 200px;
+    height: 120px;
 }
 
 .item-stacked-label{
     border:hidden;
+    margin-top: 30px;
+
 }
 
 /*.ng-valid.ng-dirty{
@@ -177,7 +256,7 @@ float: right;
 
 }
 
-.boutons{
+.boutonslogin{
     margin-top:50px;
 }
 
@@ -217,4 +296,62 @@ float: right;
 }
 .modification{
   margin-left: 30px;
+}
+
+/*//----Inscription-----//*/
+
+.liste p{
+    margin-top: 100px;
+    color: #64dd17;
+    font-size: 1.5em;
+}
+
+.liste{
+    display: block;
+    margin-top: 50px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.forminscription .item-stacked-label{
+    border-bottom: 1px solid grey;
+    margin-top: 30px;
+}
+
+
+
+.boutons .button{
+  width: 50%;
+}
+
+.boutons{
+  text-align: center;
+}
+
+/*//----HOME-----//*/
+
+.cursor{
+    display: block;
+    width:60px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top:5vh;
+}
+
+.home{
+    margin-top: 100px;
+    position: relative;
+}
+
+.go{
+    display: block;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:50px;
+}
+
+.ajoutactivite{
+  box-shadow: 0 0 4px 5px rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }

@@ -1,6 +1,6 @@
 <ion-view>
   <ion-modal-content>
-        <img src="img/wavi3.png" alt="" class="logo">
+        <img src="img/wavi3.png" alt="" class="logo center">
         <form name="myform">
         <label class="item-sociaux">
             <button class="button button-full button-positive">
@@ -17,11 +17,11 @@
       <label class="item item-input item-stacked-label">
         <input ng-model="data.password" ng-minlength="4" type="password" placeholder="Mot de passe" required>
       </label>
-      <div class="boutons">
-        <button  ng-click="doLogin()" class="button button-assertive">
+      <div class="boutonslogin">
+        <button  ng-click="doLogin()" class="button button-assertive buttonlogin">
             Connexion
         </button>
-        <button ng-click="login()" class="button button-assertive">
+        <button ng-click="login()" class="button button-assertive buttonlogin">
           Inscription
         </button>
       </div>

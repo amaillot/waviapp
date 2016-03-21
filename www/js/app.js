@@ -34,9 +34,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngMap'])
 
   .state('login', {
   url: '/login',
-  abstract: true,
-  templateUrl: 'templates/login.html',
-  controller: 'AppCtrl'
+  views: {
+    'menuContent': {
+      templateUrl: 'templates/login.html',
+      controller : 'AppCtrl'
+    }
+  }
 })
 
   .state('app.compte', {

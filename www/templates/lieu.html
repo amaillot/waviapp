@@ -6,20 +6,27 @@
     </div>
   </ion-header-bar>
 <ion-content>
+<div class="titre_lieux">
   <h1>{{selectedlieu.nom}}</h1>
-  <p>{{selectedlieu.description}}</p>
-  <img class="photo" src="{{selectedlieu.photo}}" alt="">
-  <p>La on met un lourd texte provisoire vu que jai pas encore la connexion
-  asser balaise à la base pour récupérer les catégoeires etc donc fuck {{selectedlieu.couleur}}</p>
-  <a href="" ng-click="closeLieu()">Retour</a>
-<br>
-  <a href="">Allons-y !</a>
-  <button class="button button-positive" ng-click="showPopup()">
-      Ajouter un commentaire
-      </button>
-      <button class="button button-positive" ng-click="showPopup()">
-          Supprimer un commentaire
-          </button>
+  <h2>{{selectedlieu.categorie}}</h2>
+</div>
+  <img class="image_lieux" src="{{selectedlieu.photo}}" alt="">
+  <div class="description_lieux">
+   <p>{{selectedlieu.description}}</p>
+ </div>
+ <div class="buttons_lieux">
+     <button  menu-close  class="button button-assertive" ng-click="closeLieu()">
+        RETOUR
+     </button>
+     <button  menu-close  class="button button-balanced">
+        ALLONS Y
+     </button>
+   </div>
+   <button class="button button-balanced center ajouter" ng-click="showPopup()">
+       Ajouter un commentaire
+       </button>
+
+
 <div class="list">
     <a class="item item-avatar" href="#" ng-repeat="comment in comments">
       <img src="{{comment.avatar}}">

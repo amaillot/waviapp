@@ -3,7 +3,7 @@ angular.module('starter.controllers', ['ionic'])
 .controller('AppCtrl', function($scope, $ionicModal, $http, $ionicPopup) {
 
         // Create the login modal that we will use later
-        $ionicModal.fromTemplateUrl('templates/logintestdata.html', {
+        $ionicModal.fromTemplateUrl('templates/inscription.html', {
           scope: $scope
         }).then(function(modal) {
           $scope.modal = modal;
@@ -46,26 +46,21 @@ angular.module('starter.controllers', ['ionic'])
           }).then(function (res){
               $scope.auth = res.data[0];
               if ($scope.auth.prenom == 'Erreur') {
-                  alert("Erreur d'authentification");
+                var alertPopup = $ionicPopup.alert({
+                title: "Erreur d'authentification !"})
               }else if ($scope.auth.prenom == '') {
-                alert("Erreur d'authentification");
+                var alertPopup = $ionicPopup.alert({
+                title: "Erreur d'authentification !"
+               });
 
               }else{
                 window.location.replace("#/app/home");
                 $scope.currentUser = $scope.auth;
                 var alertPopup = $ionicPopup.alert({
-                 title: 'Bienvenue '+$scope.currentUser.pseudo+' !',
-                 template: '<img height="10px" scr="'+$scope.currentUser.avatar+'">'
-               });
-
-               alertPopup.then(function(res) {
-                 console.log('Thank you for not eating my delicious ice cream cone');
+                title: 'Bienvenue '+$scope.currentUser.pseudo+' !'
                });
               }
             });
-
-
-
           };
     })
 
@@ -84,6 +79,9 @@ angular.module('starter.controllers', ['ionic'])
       $http.get(link).then(function (res){
       $scope.cats = res.data;
           });
+
+          $('.button-collapse').sideNav();
+
 
       $(".down").click(function(){
         if ($(".down").hasClass('up')) {
