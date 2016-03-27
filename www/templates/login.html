@@ -2,14 +2,6 @@
   <ion-modal-content>
         <img src="img/wavi3.png" alt="" class="logo center">
         <form name="myform">
-        <label class="item-sociaux">
-            <button class="button button-full button-positive">
-                Connexion avec Facebook
-            </button>
-            <button class="button button-full button-red">
-               Connexion avec Google
-            </button>
-        </label>
       <div class="list">
       <label class="item item-input item-stacked-label">
         <input ng-model="data.pseudo" ng-minlength="4" type="text" placeholder="Identifiant" required>
@@ -27,8 +19,5 @@
       </div>
      </div>
     </form>
-    <div class="item item-text-wrap">
-        Response: {{currentUser.prenom}}
-    </div>
   </ion-modal-content>
 </ion-view>

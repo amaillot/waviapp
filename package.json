@@ -16,7 +16,8 @@
   },
   "cordovaPlugins": [
     "cordova-plugin-geolocation",
-    "cordova-plugin-whitelist"
+    "cordova-plugin-whitelist",
+    "cordova-plugin-actionsheet"
   ],
   "cordovaPlatforms": [
     "ios",

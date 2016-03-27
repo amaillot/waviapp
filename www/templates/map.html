@@ -2,7 +2,7 @@
 
   <ion-content scroll="false" class="map">
 
-    <ng-map center="IUT Marle Vallée"
+    <ng-map center="IUT Marne la vallee"
 
         zoom="{{zoom}}"
         disable-default-u-i="true"
@@ -11,10 +11,10 @@
         keyboard-shortcuts="false"
         default-style = "false">
 
-    <marker position="48.8371, 2.58492" title="ma position" icon="img/epingle.png"></marker>
+    <marker position="IUT Marne la vallee" title="ma position" icon="img/epingle.png"></marker>
 
     <div ng-repeat="lieu in lieus">
-    <marker position="{{lieu.adresse}}"
+    <marker position="{{lieu.lat}}, {{lieu.lng}}"
     title="yo"
     on-click="showInfos(event, lieu)"
     icon="{
@@ -36,8 +36,16 @@
     </info-window>
     </div>
 
-</ng-map>
+    <directions
+     ng-if="go"
+     draggable="false"
+     panel="directions-panel"
+     travel-mode="{{travelmode}}"
+     origin="IUT Marne la Vallee"
+     destination="{{selectedlieu.lat}}, {{selectedlieu.lng}}">
+   </directions>
 
+</ng-map>
 
 <div class="item range range-assertive zoom">
   <p>zoom : {{zoom}}</p>

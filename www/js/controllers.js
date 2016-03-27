@@ -1,6 +1,27 @@
 angular.module('starter.controllers', ['ionic'])
 
 .controller('AppCtrl', function($scope, $ionicModal, $http, $ionicPopup) {
+ //
+ //  if(window.localStorage.getItem("username") !== undefined && window.localStorage.getItem("password") !== undefined) {
+ //
+ //        var link = 'http://localhost:8888/login.php';
+ //
+ //        $http.post(link, {
+ //          pseudo : window.localStorage.getItem("username"),
+ //          password : window.localStorage.getItem("password")
+ //        }).then(function (res){
+ //            $scope.auth = res.data[0];
+ //              window.location.replace("#/app/home");
+ //              $scope.currentUser = $scope.auth;
+ //              var avatar = $scope.currentUser.avatar;
+ //              $('.avatarmenu').css('background-image', 'url('+avatar+')');
+ //              $('#textmenu').html($scope.currentUser.prenom);
+ //              var alertPopup = $ionicPopup.alert({
+ //              title: 'Bienvenue '+$scope.currentUser.pseudo+' !'
+ //             });
+ //        });
+ //
+ // }else {
 
         // Create the login modal that we will use later
         $ionicModal.fromTemplateUrl('templates/inscription.html', {
@@ -54,25 +75,49 @@ angular.module('starter.controllers', ['ionic'])
                });
 
               }else{
+
                 window.location.replace("#/app/home");
                 $scope.currentUser = $scope.auth;
+                var avatar = $scope.currentUser.avatar;
+                $('.avatarmenu').css('background-image', 'url('+avatar+')');
+                $('#textmenu').html($scope.currentUser.prenom);
+                window.localStorage.setItem("username", $scope.currentUser.pseudo);
+                window.localStorage.setItem("password", $scope.currentUser.password);
                 var alertPopup = $ionicPopup.alert({
                 title: 'Bienvenue '+$scope.currentUser.pseudo+' !'
                });
               }
             });
           };
+
     })
 
 .controller('CompteCtrl', function($scope, $http, $ionicModal){
       $scope.deconnexion = function(){
           window.location.replace("#/app/login");
       };
-          })
+   })
+
+.controller('aproposCtrl', function($scope, $http, $ionicModal){
+
+      $scope.sheet = function() {
+        var options = {
+          'buttonLabels' : ['Library', 'Camera'],
+          'androidEnableCancelButton' : true,
+          'winphoneEnableCancelButton' : true,
+          'addCancelButtonWithLabel' : 'Cancel'
+        };
+        window.plugins.actionsheet.show(options, callback);
+      };
+
+      $(".testbutton").click(function(){
+          $(".test").slideToggle(300);
+      });
+
+  })
 
 
 .controller('homeCtrl', function($scope, $http, $ionicModal){
-
 
     var link = 'http://localhost:8888/getcategorie.php';
 
@@ -80,17 +125,20 @@ angular.module('starter.controllers', ['ionic'])
       $scope.cats = res.data;
           });
 
-          $('.button-collapse').sideNav();
-
+      $('.button-collapse').sideNav({
+      menuWidth: 240, // Default is 240
+      closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+    }
+  );
 
       $(".down").click(function(){
         if ($(".down").hasClass('up')) {
+          $(".filtres").delay(300).fadeOut(200);
           $(".listefiltre").slideUp(300);
-          $(".filtres").fadeOut(300);
           $(".down").removeClass('up');
         } else {
-          $(".listefiltre").slideDown(300);
-          $(".filtres").fadeIn(300);
+          $(".filtres").fadeIn(200);
+          $(".listefiltre").delay(200).slideDown(300);
           $(".down").addClass('up');
         }
       });
@@ -148,14 +196,19 @@ angular.module('starter.controllers', ['ionic'])
 
         $http.get(link).then(function (res){
             $scope.lieus = res.data;
-            console.log($scope.lieus);
-                });
+                        });
 
         $scope.showInfos = function(event, lieu) {
                    $scope.selectedlieu = lieu;
                    $scope.map.showInfoWindow('myInfoWindow', this);
+                   $scope.go = false;
                };
 
+
+        $scope.allonsy = function() {
+            $scope.go = true;
+            $scope.modal.hide();
+        };
 
         $ionicModal.fromTemplateUrl('templates/lieu.html', {
           scope: $scope
@@ -200,7 +253,7 @@ angular.module('starter.controllers', ['ionic'])
        $scope.data = {}
 
        // An elaborate, custom popup
-       var myPopup = $ionicPopup.show({
+       var PopupCommentaire = $ionicPopup.show({
          template: '<input type="texte" ng-model="data.texte">',
          title: 'Entrer votre commentaire',
         //  subTitle: 'Please use normal things',
@@ -215,7 +268,6 @@ angular.module('starter.controllers', ['ionic'])
                  //don't allow the user to close unless he enters wifi password
                  e.preventDefault();
                } else {
-
                 //on envoie le commentaire
                  var link3 = 'http://localhost:8888/inser_comments.php';
 
@@ -225,7 +277,7 @@ angular.module('starter.controllers', ['ionic'])
                    utilisateur : $scope.currentUser.id
 
                  }).then(function(res){
-                   $scope.reponse = res.data;
+                   $scope.reponse = commentairenow.data;
                  });
 
 
@@ -234,12 +286,57 @@ angular.module('starter.controllers', ['ionic'])
            },
          ]
        });
-       myPopup.then(function(res) {
+       PopupCommentaire.then(function(res) {
       console.log('Tapped!', res);
     });
     $timeout(function() {
-       myPopup.close(); //close the popup after 10 seconds for some reason
+       PopupCommentaire.close(); //close the popup after 10 seconds for some reason
     }, 10000);
     };
+
+    $scope.noter = function(note){
+      $scope.note = note;
+    }
+
+    $scope.showPopupNote = function() {
+   $scope.data = {}
+
+
+   // An elaborate, custom popup
+   var PopupNote = $ionicPopup.show({
+     template: '<div class="rating"><a href="#" ng-click="noter(5)">☆</a><a href="#" ng-click="noter(4)">☆</a><a href="#" ng-click="noter(3)">☆</a><a href="#" ng-click="noter(2)">☆</a><a href="#" ng-click="noter(1)">☆</a></div>',
+     title: 'Entrer votre note',
+    //  subTitle: 'Please use normal things',
+     scope: $scope,
+     buttons: [
+       { text: 'Annuler' },
+       {
+         text: '<b>Envoyer</b>',
+         type: 'button-positive',
+         onTap: function(e) {
+            // on envoie le commentaire
+             var link = 'http://localhost:8888/note.php';
+
+             $http.post(link, {
+               note : $scope.note,
+               lieu : $scope.selectedlieu.id
+             }).then(function(res){
+               $scope.notation = res.data;
+             });
+
+            myPopup.close();
+
+         }
+       },
+     ]
+   });
+   PopupNote.then(function(res) {
+  console.log('Tapped!', res);
+});
+$timeout(function() {
+   PopupNote.close(); //close the popup after 10 seconds for some reason
+}, 10000);
+};
+
 
 });

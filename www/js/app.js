@@ -71,6 +71,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngMap'])
         }
       })
 
+      .state('app.information', {
+          url: '/information',
+          views: {
+            'menuContent': {
+              templateUrl: 'templates/apropos.html',
+              controller : 'aproposCtrl'
+            }
+          }
+        })
+
 
   .state('app.map', {
     url: '/map',

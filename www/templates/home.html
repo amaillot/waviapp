@@ -1,31 +1,34 @@
 <ion-view>
-  <ion-header-bar class="vert headerfiltre">
-    <div class="filtrebar down center">Filtres</div>
 
-  </ion-header-bar> -->
-  <ion-content scroll="false">
-    <nav class="light-blue lighten-1" role="navigation">
-      <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
-        <ul id="nav-mobile" class="side-nav">
-          <li><a href="#">Navbar Link</a></li>
-        </ul>
-        <a href="" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-      </div>
-    </nav>
+
+
+  <ion-header-bar class="vert headerfiltre">
+    <div class="filtrebar center down">Filtres</div>
+  </ion-header-bar>
+
+  <ion-content class="contenthome">
+
+
     <div class="filtres">
 
     </div>
     <ion-list class="listefiltre">
-<li class="item item-checkbox-square filtre" ng-repeat="cat in cats">
-  <img src="img/{{cat.couleur}}.png" alt="" id="rond">
-{{cat.nom}}
- <input type="checkbox" class="checkbox">
- </label>
-</li>
+    <li class="item item-checkbox-square filtre" ng-repeat="cat in cats">
+    <img src="img/{{cat.couleur}}.png" alt="" id="rond">
+    {{cat.nom}}
+    <input type="checkbox" id="2" value="id" class="checkbox">
+
+    </li>
     </ion-list>
+
+    <h5 id="textgo">Sélectionnez vos filtres et c'est parti !</h5>
+
 <a href="#/app/map">
-<img src="img/pointe2.png" alt="" class="center pointe">
+  <button class="button button-balanced go">
+  GO !
+  </button>
 </a>
+
   </ion-content>
 <a href="" ng-click="Activity()">
   <div class="bar bar-footer bar-assertive ajoutactivite">

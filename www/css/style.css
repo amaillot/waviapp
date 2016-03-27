@@ -1,18 +1,44 @@
 /* Empty. Add your own CSS if you like */
 
+.test{
+  background-color: red;
+  height: 200px;
+  width: 100%;
+  display: none;
+}
+
+.has-header{
+  top: 20px 
+}
+
 .menumaterial{
   position: absolute;
   top: 0;
 }
 
+.headerbar{
+  background-color: #64dd17;
+  box-shadow: 0 0 4px 5px rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.icon{
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  float: left;
+}
+
+.itemmenu{
+  text-align: center;
+}
+
 .couverturemenu{
   height: 220px;
   width: 100%;
-  background-image: url('http://img.lum.dolimg.com/v1/images/databank_mustafar_01_169_5b470758.jpeg?region=0%2C0%2C1560%2C878&width=768');
-  /*background-image: url(../img/wavicouv.jpg);*/
+  /*background-image: url('http://img.lum.dolimg.com/v1/images/databank_mustafar_01_169_5b470758.jpeg?region=0%2C0%2C1560%2C878&width=768');*/
+  background-image: url(../img/wavicouv.jpg);
   background-position: center;
   background-size: cover;
-  text-align: center;
 }
 
 .avatarmenu{
@@ -20,12 +46,19 @@
   top: 70px;
   width: 80px;
   height: 80px;
+  margin-left: 15px;
   border: solid 1px black;
   box-shadow: 0 0 4px 5px rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   border-radius: 100px;
   background-position: center;
   background-size: cover;
   background-image: url();
+}
+
+#textmenu{
+  margin-left: 15px;
+  color: white;
+  margin-top: 100px;
 }
 
 ion-nav-view{
@@ -57,9 +90,12 @@ ion-nav-view{
 
 /*//----HOME-----//*/
 
-.pointe{
-  margin-top:100px;
-  width: 300px;
+.go{
+  display: block;
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:50px;
 }
 
 .pointe:active{
@@ -69,14 +105,21 @@ ion-nav-view{
 .headerfiltre{
   height: 120px;
 }
+
+.contenthome{
+  bottom: 44px;
+}
+
 .filtres{
   display: none;
   position: absolute;
-  top: 70px;
-  height: 100%;
+  top: 0;
+  height: 600px;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.6);
+  background-attachment: fixed;
   text-align: center;
+  z-index : 1;
 }
 
 .up {
@@ -84,6 +127,7 @@ ion-nav-view{
 }
 
 .filtre{
+  height: 70px;
   list-style: none;
   margin: 10px;
   border-radius: 5px;
@@ -91,9 +135,9 @@ ion-nav-view{
 
 .listefiltre{
   display: none;
-  height: 100%;
+  height: 400px;
   position: absolute;
-  top: 80px;
+  top: 20px;
   width: 100%;
   text-align: center;
 }
@@ -119,6 +163,36 @@ ion-nav-view{
 
 .filtrebar:active{
   background-color: grey;
+}
+
+.cursor{
+    display: block;
+    width:60px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top:5vh;
+}
+
+.home{
+    margin-top: 100px;
+    position: relative;
+}
+
+.go{
+     width: 30%;
+     height: 20%;
+     margin-left: auto;
+     margin-right: auto;
+     margin-top:50px;
+}
+
+#textgo{
+  text-align: center;
+  margin-top: 100px;
+}
+.ajoutactivite{
+  z-index: -1;
+  box-shadow: 0 0 4px 5px rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
 
@@ -159,6 +233,28 @@ float: right;
   background-size: cover;
   float: left;
   margin-right: 10px;
+}
+.rating {
+   direction: rtl;
+   text-align: center;
+}
+
+.rating a {
+   color: #aaa;
+   text-decoration: none;
+   font-size: 30px;
+   transition: color .4s;
+}
+.rating a:hover,
+.rating a:focus,
+.rating a:hover ~ a,
+.rating a:focus ~ a {
+   color: orange;
+   cursor: pointer;
+}
+.titrelieu{
+  width: 100%;
+  display: inline-block;
 }
 
 .right{
@@ -217,16 +313,22 @@ margin-left: 10px;
 
 /*//----Login-----//*/
 
-.item-buttons{
-    position: relative;
-    top:50px;
+.divlogo{
+  position: absolute;
+  width: 100%;
+  text-align: center;
+}
+
+.boutonslogin{
+  text-align: center;
+  margin-top:50px;
 
 }
 
  .buttonlogin{
     width: 40%;
     height: 60%;
-    left:10%;
+    margin: 10px;
 }
 
 .button.button-red{
@@ -240,34 +342,27 @@ margin-left: 10px;
     height: 120px;
 }
 
+
+
 .item-stacked-label{
     border:hidden;
     margin-top: 30px;
 
 }
 
-/*.ng-valid.ng-dirty{
-    border-bottom:2px solid green;
-
-}*/
-
 .ng-invalid.ng-dirty{
     border-bottom:2px solid red;
 
-}
-
-.boutonslogin{
-    margin-top:50px;
 }
 
 /*//----COMPTE-----//*/
 
 .couverture{
   margin-top: 40px;
-    height: 220px;
+    height: 160px;
     width: 100%;
-    background-image: url('http://img.lum.dolimg.com/v1/images/databank_mustafar_01_169_5b470758.jpeg?region=0%2C0%2C1560%2C878&width=768');
-    /*background-image: url(../img/wavicouv.jpg);*/
+    /*background-image: url('http://img.lum.dolimg.com/v1/images/databank_mustafar_01_169_5b470758.jpeg?region=0%2C0%2C1560%2C878&width=768');*/
+    background-image: url(../img/wavicouv.jpg);
     background-position: center;
     background-size: contain;
     text-align: center;
@@ -275,27 +370,28 @@ margin-left: 10px;
 
 .avatar {
     position: relative;
-    top: 20px;
-    width: 180px;
-    height: 180px;
+    top: 30px;
+    width: 120px;
+    height: 120px;
     border: solid 1px black;
-    box-shadow: 2px 2px;
+    box-shadow: 0 0 4px 5px rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
     border-radius: 100px;
     background-position: center;
     background-size: cover;
 }
 
-
-
-.itemuser{
-  width: 90%;
+.account{
+  width: 100%;
+  text-align: center;
 }
 
 .deconnexion{
-  margin-right: 30px;
+  font-size: 12px;
+  margin-right: 10px
 }
 .modification{
-  margin-left: 30px;
+  font-size: 12px;
+  margin-left: 10px;
 }
 
 /*//----Inscription-----//*/
@@ -327,31 +423,4 @@ margin-left: 10px;
 
 .boutons{
   text-align: center;
-}
-
-/*//----HOME-----//*/
-
-.cursor{
-    display: block;
-    width:60px;
-    margin-right: auto;
-    margin-left: auto;
-    margin-top:5vh;
-}
-
-.home{
-    margin-top: 100px;
-    position: relative;
-}
-
-.go{
-    display: block;
-    width: 30%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top:50px;
-}
-
-.ajoutactivite{
-  box-shadow: 0 0 4px 5px rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
