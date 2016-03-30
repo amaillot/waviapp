@@ -18,9 +18,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngMap'])
     if (window.StatusBar) {
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
+      // StatusBar.styleColor('green');
     }
   });
 })
+
 
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider

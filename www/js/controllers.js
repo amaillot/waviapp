@@ -1,27 +1,10 @@
 angular.module('starter.controllers', ['ionic'])
 
 .controller('AppCtrl', function($scope, $ionicModal, $http, $ionicPopup) {
- //
- //  if(window.localStorage.getItem("username") !== undefined && window.localStorage.getItem("password") !== undefined) {
- //
- //        var link = 'http://localhost:8888/login.php';
- //
- //        $http.post(link, {
- //          pseudo : window.localStorage.getItem("username"),
- //          password : window.localStorage.getItem("password")
- //        }).then(function (res){
- //            $scope.auth = res.data[0];
- //              window.location.replace("#/app/home");
- //              $scope.currentUser = $scope.auth;
- //              var avatar = $scope.currentUser.avatar;
- //              $('.avatarmenu').css('background-image', 'url('+avatar+')');
- //              $('#textmenu').html($scope.currentUser.prenom);
- //              var alertPopup = $ionicPopup.alert({
- //              title: 'Bienvenue '+$scope.currentUser.pseudo+' !'
- //             });
- //        });
- //
- // }else {
+  
+  if (window.localStorage.getItem("username") =! undefined) {
+    $scope.localuser = window.localStorage.getItem("username");
+  }
 
         // Create the login modal that we will use later
         $ionicModal.fromTemplateUrl('templates/inscription.html', {
@@ -44,7 +27,7 @@ angular.module('starter.controllers', ['ionic'])
         $scope.data = {};
 
           $scope.submit = function(){
-              var link = 'http://localhost:8888/api.php';
+              var link = 'http://www.wavi.fr/php/wavi-api/api.php';
 
               $http.post(link, {
                 prenom : $scope.data.prenom,
@@ -59,7 +42,7 @@ angular.module('starter.controllers', ['ionic'])
           };
 
       $scope.doLogin = function(){
-          var link = 'http://localhost:8888/login.php';
+          var link = 'http://www.wavi.fr/php/wavi-api/login.php';
 
           $http.post(link, {
             pseudo : $scope.data.pseudo,
@@ -118,15 +101,21 @@ angular.module('starter.controllers', ['ionic'])
 
 
 .controller('homeCtrl', function($scope, $http, $ionicModal){
-
-    var link = 'http://localhost:8888/getcategorie.php';
+    var link = 'http://www.wavi.fr/php/wavi-api/getcategorie.php';
 
       $http.get(link).then(function (res){
       $scope.cats = res.data;
           });
 
+
+
+
+
+        var windowWidth = $(window).width();
+        var windowWidth = windowWidth*(85/100);
+
       $('.button-collapse').sideNav({
-      menuWidth: 240, // Default is 240
+      menuWidth: windowWidth, // Default is 240
       closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
     }
   );
@@ -142,6 +131,13 @@ angular.module('starter.controllers', ['ionic'])
           $(".down").addClass('up');
         }
       });
+
+      $scope.check = function(id){
+        $('#'+id+'').prop('checked', function (i, value) {
+        return !value;
+      });
+
+      }
 
       $ionicModal.fromTemplateUrl('templates/ajoutlieu.html', {
         scope: $scope
@@ -163,7 +159,7 @@ angular.module('starter.controllers', ['ionic'])
       $scope.data = {};
 
         $scope.submit = function(){
-            var link = 'http://localhost:8888/inser_lieu.php';
+            var link = 'http://www.wavi.fr/php/wavi-api/inser_lieu.php';
             $http.post(link, {
               nom : $scope.data.nom,
               categorie : $scope.data.cat,
@@ -179,7 +175,7 @@ angular.module('starter.controllers', ['ionic'])
 
 .controller('mapCtrl', function($scope, $http, $ionicModal, NgMap, $ionicPopup, $timeout) {
 
-    var link = 'http://localhost:8888/getcategorie.php';
+    var link = 'http://www.wavi.fr/php/wavi-api/getcategorie.php';
 
     $http.get(link).then(function (res){
     $scope.cats = res.data;
@@ -192,7 +188,7 @@ angular.module('starter.controllers', ['ionic'])
                 $scope.map = map;
             });
 
-        var link = 'http://localhost:8888/markers.php';
+        var link = 'http://www.wavi.fr/php/wavi-api/markers.php';
 
         $http.get(link).then(function (res){
             $scope.lieus = res.data;
@@ -225,7 +221,7 @@ angular.module('starter.controllers', ['ionic'])
         // Open the login modal
         $scope.Lieu = function() {
           $scope.modal.show();
-          var link2 = 'http://localhost:8888/comments.php';
+          var link2 = 'http://www.wavi.fr/php/wavi-api/comments.php';
 
           $http.post(link2, {
             id : $scope.selectedlieu.id,
@@ -238,7 +234,7 @@ angular.module('starter.controllers', ['ionic'])
         //afficher tout les commentaires
         $scope.showComments = function() {
           $scope.modal.show();
-          var link2 = 'http://localhost:8888/comments.php';
+          var link2 = 'http://www.wavi.fr/php/wavi-api/comments.php';
 
           $http.post(link2, {
             id : $scope.selectedlieu.id,
@@ -269,7 +265,7 @@ angular.module('starter.controllers', ['ionic'])
                  e.preventDefault();
                } else {
                 //on envoie le commentaire
-                 var link3 = 'http://localhost:8888/inser_comments.php';
+                 var link3 = 'http://www.wavi.fr/php/wavi-api/inser_comments.php';
 
                  $http.post(link3, {
                    commentaire : $scope.data.texte,
@@ -315,7 +311,7 @@ angular.module('starter.controllers', ['ionic'])
          type: 'button-positive',
          onTap: function(e) {
             // on envoie le commentaire
-             var link = 'http://localhost:8888/note.php';
+             var link = 'http://www.wavi.fr/php/wavi-api/note.php';
 
              $http.post(link, {
                note : $scope.note,

@@ -1987,7 +1987,7 @@ $(document).ready(function(){
   var methods = {
     init : function(options) {
       var defaults = {
-        menuWidth: 300,
+        menuWidth: 10000,
         edge: 'left',
         closeOnClick: true
       };
