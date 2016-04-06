@@ -449,7 +449,7 @@ margin-left: 10px;
 
 }
 
-.ng-invalid.ng-dirty{
+.item-stacked-label .ng-invalid.ng-dirty{
     border-bottom:2px solid red;
 }
 

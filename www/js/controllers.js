@@ -351,6 +351,30 @@ navigator.geolocation.getCurrentPosition(onSuccess);
 
       })
 
+// .controller('aproposCtrl', function($scope, $cordovaEmailComposer){
+//
+//   $scope.mail = function(){
+//
+//   $cordovaEmailComposer.isAvailable().then(function() {
+//    // is available
+//  }, function () {
+//    // not available
+//  });
+//
+//   var email = {
+//     to: 'alex-nfl@hotmail.fr',
+//     subject: 'Wavi contact',
+//     body: 'How are you? Nice greetings from Leipzig',
+//     isHtml: true
+//   };
+//
+//  $cordovaEmailComposer.open(email).then(null, function () {
+//    // user cancelled email
+//  });
+//
+// };
+// })
+
 .controller('mapCtrl', function($scope, $http, $ionicModal, NgMap, $ionicPopup, $timeout, $rootScope) {
 
         var zoom = $scope.zoom;
