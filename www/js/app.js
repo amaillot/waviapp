@@ -23,8 +23,29 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngMap'])
   });
 })
 
+.factory('Camera', ['$q', function($q) {
 
-.config(function($stateProvider, $urlRouterProvider) {
+  return {
+    getPicture: function(options) {
+      var q = $q.defer();
+
+      navigator.camera.getPicture(function(result) {
+        // Do any magic you need
+        q.resolve(result);
+      }, function(err) {
+        q.reject(err);
+      }, options);
+
+      return q.promise;
+    }
+  }
+}])
+
+
+.config(function($stateProvider, $urlRouterProvider, $compileProvider) {
+
+  $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):/);
+
   $stateProvider
 
     .state('app', {
@@ -77,9 +98,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngMap'])
           url: '/information',
           views: {
             'menuContent': {
-              templateUrl: 'templates/apropos.html',
-              controller : 'aproposCtrl'
-            }
+              templateUrl: 'templates/apropos.html'
+              }
           }
         })
 
@@ -96,3 +116,52 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngMap'])
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/login');
 });
+//
+// .controller('MainCtrl', function($scope, Camera) {
+//
+//   $scope.getPhoto = function() {
+//     Camera.getPicture().then(function(imageURI) {
+//       console.log(imageURI);
+//       $scope.lastPhoto = imageURI;
+//     }, function(err) {
+//       console.err(err);
+//     }, {
+//       quality: 75,
+//       targetWidth: 320,
+//       targetHeight: 320,
+//       saveToPhotoAlbum: false
+//     });
+//   };
+//
+//
+//   $scope.uploadPhoto = function() {
+//       var imageURI        = $scope.lastPhoto;
+//       var options         = new FileUploadOptions();
+//       options.fileKey     = "file";
+//
+//       options.fileName    = imageURI.substr(imageURI.lastIndexOf('/')+1);
+//       options.mimeType    = "image/jpeg";
+//
+//       var params          = {};
+//       params.value1       = "test";
+//       params.value2       = "param";
+//
+//       options.params      = params;
+//       options.chunkedMode = false;
+//
+//       var win = function(r) {
+//           console.log("Code = " + r.responseCode);
+//           console.log("Response = " + r.response);
+//           console.log("Sent = " + r.bytesSent);
+//           alert(r.response);
+//       };
+//
+//       var fail = function(error) {
+//           alert("An error has occurred: Code = " + error.code);
+//       };
+//
+//       var ft = new FileTransfer();
+//       ft.upload(imageURI, "http://www.wavi.fr/php/wavi-api/upload.php", win, fail, options);
+//   };
+//
+// });

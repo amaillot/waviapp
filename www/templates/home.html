@@ -11,25 +11,26 @@
     <div class="filtres">
 
     </div>
-    <form ng-submit="filtrer()">
     <ion-list class="listefiltre">
-      <div ng-repeat="cat in cats" ng-click="check({{cat.id}})">
-          <li class="item item-checkbox-square filtre">
-            <img src="img/{{cat.couleur}}.png" alt="" id="rond">
-            {{cat.nom}}
-            <input type="checkbox"
-            id="{{cat.id}}" class="checkbox">
-          </li>
-      </div>
+      <div ng-repeat='cat in cats'>
+        <li class="item item-checkbox-square filtre">
+
+        <img src="img/{{cat.couleur}}.png" alt="" id="rond">
+
+    <label>
+      <input ng-model='cat.value' type='checkbox' class="checkbox" ng-true-value="'YES'" ng-false-value="'NO'">
+      {{cat.nom}}
+    </label>
+  </li>
+  </div>
     </ion-list>
 
     <h5 id="textgo">Sélectionnez vos filtres et c'est parti !</h5>
-    <h5>{{categorie.ids}}</h5>
-    <!-- <a href="#/app/map"> -->
-  <button class="button button-balanced go" type="submit" name="submit" value="Submit to server">
+    <a href="#/app/map" ng-click="filtrer()">
+  <button class="button button-balanced go">
   GO !
   </button>
-<!-- </a> -->
+</a>
 </form>
   </ion-content>
 <a href="" ng-click="Activity()">

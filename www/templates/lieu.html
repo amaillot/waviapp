@@ -6,15 +6,11 @@
     </div>
   </ion-header-bar>
 <ion-content>
-<div class="titre_lieux">
+  <div class="titre_lieux">
   <h1>{{selectedlieu.nom}}</h1>
   <h2>{{selectedlieu.categorie}}</h2>
-  <div>Note : {{selectedlieu.note}}/5</div>
 </div>
   <img class="image_lieux" src="{{selectedlieu.photo}}" alt="">
-  <div class="description_lieux">
-   <p>{{selectedlieu.description}}</p>
- </div>
  <div class="buttons_lieux">
      <button  menu-close  class="button button-assertive" ng-click="closeLieu()">
         RETOUR
@@ -22,16 +18,24 @@
      <button  menu-close  class="button button-balanced" ng-model="go" ng-click="allonsy()">
         ALLONS Y
      </button>
-   </div>
+ </div>
+ <div class="description_lieux">
+   <p>{{selectedlieu.description}}</p>
+ </div>
+ <div class="note">
+     <p>Note : {{selectedlieu.note}}/5</p>
+  <div class="button_note">
+    <button class="button button-balanced center" ng-click="showPopupNote()">
+           Noter
+    </button>
+  </div>
+ </div>
    <button class="button button-balanced center ajouter" ng-click="showPopup()">
        Ajouter un commentaire
        </button>
-       <button class="button button-balanced center" ng-click="showPopupNote()">
-           Noter
-           </button>
 
 
-<div class="list">
+<div class="list_lieu">
     <a class="item item-avatar" href="#" ng-repeat="comment in comments">
       <img src="{{comment.avatar}}">
       <h2>{{comment.prenom}}</h2>
@@ -40,4 +44,5 @@
     </a>
 </div>
 <a href="" class="center linkcomment" ng-click="showComments()">Voir tout les commentaires</a>
+
 </ion-content>

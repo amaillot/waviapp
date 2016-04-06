@@ -3,16 +3,48 @@
     <div class="couverture" >
     <div class="avatar center" style="background-image:url({{currentUser.avatar}})"></div>
     </div>
-  <div class="list">
+  <div class="list" ng-if="info">
     <div class="item">Pseudo : {{currentUser.pseudo}}</div>
     <div class="item">Nom : {{currentUser.nom}}</div>
     <div class="item">Prénom : {{currentUser.prenom}}</div>
     <div class="item">Mail : {{currentUser.mail}}</div>
     <div class="item">Description : {{currentUser.description}}</div>
   </div>
-  <div class="account"> 
-    <button ng-click="deconnexion()" type="button" name="button" class="button button-assertive deconnexion">Se déconnecter</button>
-    <button type="button" name="button" class="button button-balanced modification">Modifier les infos</button>
+
+  <div class="account">
+    <button ng-click="deconnexion()" type="button" name="button" class="button button-assertive deconnexion" ng-if="info">Se déconnecter</button>
+    <button type="button" name="button" class="button button-balanced modification" ng-if="info" ng-click="modification()">Modifier les infos</button>
  </div>
+  <form ng-submit="modifier()">
+    <div class="list" ng-if="modif">
+
+      <div class="item">
+        <input ng-model="data.pseudo" ng-minlength="4" type="text" placeholder="{{currentUser.pseudo}}" required>
+      </div>
+      <div class="item">
+        <input ng-model="data.nom" ng-minlength="4" type="text" placeholder="{{currentUser.nom}}" required>
+      </div>
+      <div class="item">
+        <input ng-model="data.prenom" ng-minlength="4" type="text" placeholder="{{currentUser.prenom}}" required>
+      </div>
+      <div class="item">
+        <input ng-model="data.mail" ng-minlength="5" type="email" placeholder="{{currentUser.mail}}" required>
+      </div>
+      <div class="item">
+        <input ng-model="data.description" ng-minlength="5" type="text" placeholder="{{currentUser.description}}">
+      </div>
+      <div class="item">
+        <input ng-model="data.newpassword" ng-minlength="4" type="password" placeholder="Nouveau Mot de Passe" required>
+      </div>
+      <div class="item">
+        <input ng-model="data.newpassword2" ng-minlength="4" type="password" placeholder="Recopier Mot de Passe" required>
+      </div>
+      <input type="submit" value="submit">
+    </div>
+    <div class="account">
+      <button ng-click="annuler()" type="button" name="button" class="button button-assertive deconnexion" ng-if="modif">Annuler</button>
+      <button class="button button-balanced" ng-if="modif" type="submit" value="submit">Enregistrer</input>
+    </div>
+ </form>
   </ion-content>
 </ion-view>

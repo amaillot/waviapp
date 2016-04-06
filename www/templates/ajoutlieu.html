@@ -1,46 +1,48 @@
 <ion-modal-view>
-  <ion-header-bar>
+  <ion-header-bar class="vert">
     <h1 class="title">Ajouter une activité</h1>
     <div class="buttons">
       <button class="button button-clear" ng-click="closeActivity()">Close</button>
     </div>
   </ion-header-bar>
   <ion-content>
-    <form ng-submit="submit()">
-      <div class="list">
-        <label class="item item-input">
-          <span class="input-label">Nom</span>
-          <input type="text" ng-model="data.nom">
-        </label>
-        <label class="item item-input">
-          <span class="input-label">Categorie</span>
-          <select name="" id="" ng-model="data.cat">
-            <option ng-repeat="cat in cats" value="{{cat.id}}">{{cat.nom}}</option>
-          </select>
-            </label>
-        <label class="item item-input">
-          <span class="input-label">Description</span>
-          <input type="text" ng-model="data.description">
-        </label>
-        <label class="item item-input">
-          <span class="input-label">Adresse</span>
-          <input type="texte" ng-model="data.adresse">
-        </label>
-        <label class="item item-input">
-          <span class="input-label">photo</span>
-          <input type="texte" ng-model="data.photo">
-        </label>
-        <label class="item">
-          <button class="button button-block button-positive" type="submit" name="submit" value="Submit to server">Log in</button>
-        </label>
+
+<form ng-submit="uploadPhoto()">
+  <div class="list_ajoutlieu">
+    <label class="item item-input">
+      <span class="input-label">Nom</span>
+      <input type="text" ng-model="data.nom">
+    </label>
+    <label class="item item-input">
+      <select name="categorie" class="selectcat" ng-model="data.cat">
+          <option value="" selected>Choisir la catégorie</option>
+          <option ng-repeat="cat in cats" value="{{cat.id}}">{{cat.nom}}</option>
+      </select>
+    </label>
+    <label class="item item-input">
+      <span class="input-label">Description</span>
+      <input type="text" ng-model="data.description">
+    </label>
+    <label class="item item-input">
+      <span class="input-label">Photo</span>
+    </label>
+<button type="button" name="button" class="button button-balanced button_photo center" ng-click="getPhoto()">Prendre une photo</button>
+    <img src="{{lastPhoto}}" alt="" class="photoajoutlieu">
+
+    <label class="item item-input">
+      <span class="input-label adress">Position {{position.latitude}} : {{position.longitude}}</span>
+      <div ng-click="closeActivity()" style="cursor:pointer">
+      <img src="img/localisation.png" alt="" style="margin-right:20px">
       </div>
-    </form>
-
-    <div class="item item-text-wrap">
-        Response: {{reponse}}
-    </div>
-
-
+    </label>
+      <div class="boutonslogin">
+    <button class="button button-assertive buttonlogin" ng-click="closeActivity()">
+        RETOUR
+    </button>
+    <button class="button button-balanced buttonlogin" type="submit" name="submit" value="Submit to server" >
+      ENVOYER
+    </button>
+  </div>
+</form>
   </ion-content>
-
 </ion-modal-view>

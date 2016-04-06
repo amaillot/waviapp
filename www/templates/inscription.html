@@ -9,16 +9,25 @@
    <div class="liste">
      <p>inscrivez vous sur Wavi !</p>
    <label class="item item-input item-stacked-label">
-     <input ng-model="data.pseudo" ng-minlength="5" type="text" placeholder="Pseudo" required>
-   </label>
-        <label class="item item-input item-stacked-label">
-     <input ng-model="data.email" ng-minlength="5" type="email" placeholder="adresse email" required>
+     <input ng-model="data.pseudo" ng-minlength="4" type="text" placeholder="Pseudo" required>
    </label>
    <label class="item item-input item-stacked-label">
-     <input ng-model="data.password" ng-minlength="5" type="password" placeholder="Mot de passe 1" required>
+     <input ng-model="data.prenom" ng-minlength="4" type="text" placeholder="Prénom" required>
+   </label>
+   <label class="item item-input item-stacked-label">
+     <input ng-model="data.nom" ng-minlength="4" type="text" placeholder="Nom" required>
+   </label>
+    <label class="item item-input item-stacked-label">
+     <input ng-model="data.mail" ng-minlength="5" type="email" placeholder="adresse email" required>
+   </label>
+   <label class="item item-input item-stacked-label">
+     <input ng-model="data.description" ng-minlength="4" type="text" placeholder="Description">
+   </label>
+   <label class="item item-input item-stacked-label">
+     <input ng-model="data.password" ng-minlength="4" type="password" placeholder="Mot de passe 1" required>
    </label>
        <label class="item item-input item-stacked-label">
-     <input ng-model="data.password2" ng-minlength="5" type="password" placeholder="Mot de passe de vérification 2" required>
+     <input ng-model="data.password2" ng-minlength="4" type="password" placeholder="Mot de passe de vérification 2" required>
    </label>
    <div class="boutons">
      <button  menu-close  class="button button-balanced" type="submit">
