@@ -12,8 +12,8 @@
   </div>
 
   <div class="account">
-    <button ng-click="deconnexion()" type="button" name="button" class="button button-assertive deconnexion" ng-if="info">Se déconnecter</button>
-    <button type="button" name="button" class="button button-balanced modification" ng-if="info" ng-click="modification()">Modifier les infos</button>
+    <button ng-click="deconnexion()" type="button" name="button" class="button button-assertive deconnexion" ng-if="info">DECONNEXION</button>
+    <button type="button" name="button" class="button vertbouton modification" ng-if="info" ng-click="modification()">MODIFER</button>
  </div>
   <form ng-submit="modifier()">
     <div class="list" ng-if="modif">
@@ -39,11 +39,10 @@
       <div class="item">
         <input ng-model="data.newpassword2" ng-minlength="4" type="password" placeholder="Recopier Mot de Passe" required>
       </div>
-      <input type="submit" value="submit">
     </div>
     <div class="account">
-      <button ng-click="annuler()" type="button" name="button" class="button button-assertive deconnexion" ng-if="modif">Annuler</button>
-      <button class="button button-balanced" ng-if="modif" type="submit" value="submit">Enregistrer</input>
+      <button ng-click="annuler()" type="button" name="button" class="button button-assertive deconnexion" ng-if="modif">ANNULER</button>
+      <button class="button vertbouton" ng-if="modif" type="submit" value="submit">ENREGISTRER</input>
     </div>
  </form>
   </ion-content>

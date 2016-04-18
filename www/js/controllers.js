@@ -376,8 +376,6 @@ navigator.geolocation.getCurrentPosition(onSuccess);
 // })
 
 .controller('mapCtrl', function($scope, $http, $ionicModal, NgMap, $ionicPopup, $timeout, $rootScope) {
-
-        var zoom = $scope.zoom;
         $scope.data = {};
 
         NgMap.getMap().then(function(map) {
